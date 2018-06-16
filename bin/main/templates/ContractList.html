@@ -1,0 +1,109 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WORK</title>
+</head>
+<body>
+
+<form th:action="@{/RegularEmployee}" th:object="${RegularEmployeeForm}" method="post" >
+	<table class="tbtest" rules="all">正社員案件
+		<tr>
+			<th>ID</th>
+			<th>住所</th>
+			<th>契約形態</th>
+			<th>給与</th>
+			<th>賞与</th>
+			<th>職種</th>
+			<th>必要なもの</th>
+		</tr>
+		<td class="tdtest">
+			</td>
+		<tr th:each="regularEmployeeForm : ${form.regularEmployeeFormList}">
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.id}"></a>
+  			</td>
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.address}"></a>
+  			</td>
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.workForm}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.salary}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.bonus}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.work.getName()}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${regularEmployeeForm.work.getItem()}"></a>
+			</td>
+		</tr>
+  		<tr></tr>
+	</table>
+	<select name="ID">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	</select>
+	<input type="submit" value="Entry" name="Regular">
+</form>
+<br>
+
+
+<form th:action="@{/ContractEmployee}" th:object="${ContractEmployeeForm}" method="post">
+		<table class="tbtest" rules="all">契約社員案件
+		<tr>
+			<th>ID</th>
+			<th>住所</th>
+			<th>契約形態</th>
+			<th>給与</th>
+			<th>契約期間</th>
+			<th>職種</th>
+			<th>必要なもの</th>
+		</tr>
+		<tr th:each="contractEmployeeForm : ${form.contractEmployeeFormList}">
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.id}"></a>
+  			</td>
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.address}"></a>
+  			</td>
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.workForm}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.salary}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.contractPeriod}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.work.getName()}"></a>
+			</td>
+			<td class="tdtest">
+				<a th:text="${contractEmployeeForm.work.getItem()}"></a>
+			</td>
+		</tr>
+  		<tr></tr>
+	</table>
+	<select name="ID">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	</select>
+	<input type="submit" value="Entry" name="Contract">
+</form>
+
+</body>
+
+</html>
